@@ -1,4 +1,4 @@
-package com.dwarfkit.storilia.ui.home
+package com.dwarfkit.storilia.pkg.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

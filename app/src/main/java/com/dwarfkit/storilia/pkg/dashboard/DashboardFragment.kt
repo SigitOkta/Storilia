@@ -1,4 +1,4 @@
-package com.dwarfkit.storilia.ui.dashboard
+package com.dwarfkit.storilia.pkg.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.dwarfkit.storilia.ui.notifications
+package com.dwarfkit.storilia.pkg.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
