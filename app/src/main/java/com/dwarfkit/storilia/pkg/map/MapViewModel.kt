@@ -1,10 +1,10 @@
-package com.dwarfkit.storilia.pkg.dashboard
+package com.dwarfkit.storilia.pkg.map
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class MapViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"
