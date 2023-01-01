@@ -1,13 +1,22 @@
 package com.dwarfkit.storilia.pkg.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.dwarfkit.storilia.data.local.datastore.UserPreferences
+import com.dwarfkit.storilia.data.local.entity.StoryEntity
+import com.dwarfkit.storilia.data.local.entity.UserEntity
+import com.dwarfkit.storilia.data.repository.StoryRepository
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(
+    private val userPreferences: UserPreferences,
+    private val storyRepository: StoryRepository
+) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    fun getUser(): LiveData<UserEntity> {
+        return userPreferences.getUser().asLiveData()
     }
-    val text: LiveData<String> = _text
+
+    fun getAllStories(token : String): LiveData<PagingData<StoryEntity>> =
+        storyRepository.getAllStories(token).cachedIn(viewModelScope)
 }
