@@ -12,6 +12,24 @@
       android:layout_height="match_parent"
       android:scaleType="centerCrop"
       android:transitionName="profile" />
+  <View
+      android:id="@+id/view_top"
+      android:layout_width="match_parent"
+      android:layout_height="200dp"
+      android:layout_gravity="top"
+      android:rotation="180"
+      android:background="@drawable/ic_gradient_bg"
+      android:transitionName="customView" />
+
+  <ImageView
+      android:id="@+id/iv_arrow_back"
+      android:layout_gravity="start|top"
+      android:layout_marginStart="12dp"
+      android:layout_marginTop="12dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_arrow_back"
+      />
 
   <View
       android:id="@+id/view"
@@ -32,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="@string/text_username"
-        android:textColor="@color/purple1"
+         android:textColor="@color/purple1"
         android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="center"

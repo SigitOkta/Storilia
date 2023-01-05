@@ -29,4 +29,5 @@
     <string name="cd_add">Add</string>
     <string name="cd_location">Location</string>
     <string name="text_story">Story</string>
+    <string name="text_capture_by">"Capture by %s"</string>
 </resources>

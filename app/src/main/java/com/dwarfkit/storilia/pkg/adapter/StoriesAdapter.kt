@@ -1,17 +1,22 @@
 package com.dwarfkit.storilia.pkg.adapter
 
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import androidx.core.util.Pair
 import com.dwarfkit.storilia.data.local.entity.StoryEntity
 import com.dwarfkit.storilia.databinding.ItemStoryBinding
+import com.dwarfkit.storilia.pkg.detail.DetailActivity
+import com.dwarfkit.storilia.pkg.detail.DetailActivity.Companion.EXTRA_STORY_DETAIL
 import com.dwarfkit.storilia.utils.getAddress
 import com.dwarfkit.storilia.utils.toTimeAgo
-import javax.sql.CommonDataSource
 
 class StoriesAdapter : PagingDataAdapter<StoryEntity, StoriesAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
@@ -22,23 +27,21 @@ class StoriesAdapter : PagingDataAdapter<StoryEntity, StoriesAdapter.MyViewHolde
                     .load(stories?.photoUrl)
                     .into(ivItemStory)
                 tvUserStory.text = stories?.name
-                if (stories != null) {
+             /*   if (stories != null) {
                     tvLocation.text = getAddress(stories.lat,stories.lon,itemView.context)
-                }
+                }*/
                 tvTime.text = stories?.createdAt?.toTimeAgo()
-                //tvLocation.text = getAddress(stories.lat,stories.lon)
-              /*  itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, StoryDetailActivity::class.java)
-                    intent.putExtra(EXTRA_STORY, stories)
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailActivity::class.java)
+                    intent.putExtra(EXTRA_STORY_DETAIL, stories)
                     val optionsCompat: ActivityOptionsCompat =
                         ActivityOptionsCompat.makeSceneTransitionAnimation(
                             itemView.context as Activity,
                             Pair(ivItemStory, "profile"),
                             Pair(tvUserStory, "name"),
-                            Pair(vGradien, "customView"),
                         )
                     itemView.context.startActivity(intent,optionsCompat.toBundle())
-                }*/
+                }
             }
         }
     }
