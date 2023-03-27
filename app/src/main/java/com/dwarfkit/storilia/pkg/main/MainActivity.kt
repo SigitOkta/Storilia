@@ -12,13 +12,13 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.dwarfkit.storilia.R
 import com.dwarfkit.storilia.data.local.datastore.UserPreferences
 import com.dwarfkit.storilia.databinding.ActivityMainBinding
+import com.dwarfkit.storilia.pkg.add.AddStoryActivity
+import com.dwarfkit.storilia.pkg.add.CameraActivity
 import com.dwarfkit.storilia.pkg.login.LoginActivity
-import com.google.android.material.snackbar.Snackbar
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "token")
 class MainActivity : AppCompatActivity() {
@@ -47,6 +47,10 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_home, R.id.navigation_map))
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        binding.fab.setOnClickListener {
+            val intent = Intent(this,AddStoryActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun isTokenAvailable() {

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.dwarfkit.storilia.data.local.datastore.UserPreferences
 import com.dwarfkit.storilia.data.repository.StoryRepository
 import com.dwarfkit.storilia.di.Injection
+import com.dwarfkit.storilia.pkg.add.AddStoryViewModel
 import com.dwarfkit.storilia.pkg.home.HomeViewModel
 
 class StoryViewModelFactory(
@@ -19,9 +20,10 @@ class StoryViewModelFactory(
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(userPreferences,storyRepository) as T
             }
-           /* modelClass.isAssignableFrom(AddStoryViewModel::class.java) -> {
+            modelClass.isAssignableFrom(AddStoryViewModel::class.java) -> {
                 AddStoryViewModel(userPreferences,storyRepository) as T
             }
+            /*
             modelClass.isAssignableFrom(MapViewModel::class.java) -> {
                 MapViewModel(userPreferences,storyRepository) as T
             }*/
