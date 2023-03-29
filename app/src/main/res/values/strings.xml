@@ -30,4 +30,10 @@
     <string name="cd_location">Location</string>
     <string name="text_story">Story</string>
     <string name="text_capture_by">"Capture by %s"</string>
+    <string name="text_parsing_failed">Style parsing failed.</string>
+    <string name="text_error_cant_find_style">\"Can\'t find style. Error: \"</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
 </resources>

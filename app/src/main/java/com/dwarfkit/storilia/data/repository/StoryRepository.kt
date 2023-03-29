@@ -32,6 +32,34 @@ class StoryRepository constructor(
             }
         ).liveData
 
+    fun getAllStoriesWithLocation(token: String): LiveData<Resource<List<StoryEntity>>> = liveData {
+        emit(Resource.Loading)
+        try {
+            val response = apiService.getAllStories("Bearer $token", location = 1)
+            val stories = response.listStory
+            val storyList = stories.map { story ->
+                StoryEntity(
+                    story.id,
+                    story.photoUrl,
+                    story.createdAt,
+                    story.name,
+                    story.description,
+                    story.lon,
+                    story.lat
+                )
+            }
+            emit(Resource.Success(storyList))
+        } catch (e: HttpException) {
+            val responseBody =
+                Gson().fromJson(e.response()?.errorBody()?.string(), StoriesResponse::class.java)
+            emit(Resource.Error(responseBody.message))
+        } catch (e: IOException) {
+            emit(Resource.Error(e.message.toString()))
+        } catch (e: Exception) {
+            emit(Resource.Error(e.message.toString()))
+        }
+    }
+
     fun addNewStory(
         token: String,
         description: RequestBody,

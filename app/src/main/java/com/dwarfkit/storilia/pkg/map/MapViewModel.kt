@@ -3,11 +3,17 @@ package com.dwarfkit.storilia.pkg.map
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.dwarfkit.storilia.data.local.datastore.UserPreferences
+import com.dwarfkit.storilia.data.local.entity.UserEntity
+import com.dwarfkit.storilia.data.repository.StoryRepository
 
-class MapViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+class MapViewModel(
+    private val userPreferences: UserPreferences,
+    private val storyRepository: StoryRepository
+) : ViewModel() {
+    fun getUser(): LiveData<UserEntity> {
+        return userPreferences.getUser().asLiveData()
     }
-    val text: LiveData<String> = _text
+    fun getAllStoriesWithLocation(token: String) = storyRepository.getAllStoriesWithLocation(token)
 }

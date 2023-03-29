@@ -8,6 +8,7 @@ import com.dwarfkit.storilia.data.repository.StoryRepository
 import com.dwarfkit.storilia.di.Injection
 import com.dwarfkit.storilia.pkg.add.AddStoryViewModel
 import com.dwarfkit.storilia.pkg.home.HomeViewModel
+import com.dwarfkit.storilia.pkg.map.MapViewModel
 
 class StoryViewModelFactory(
     private val userPreferences: UserPreferences,
@@ -23,10 +24,9 @@ class StoryViewModelFactory(
             modelClass.isAssignableFrom(AddStoryViewModel::class.java) -> {
                 AddStoryViewModel(userPreferences,storyRepository) as T
             }
-            /*
             modelClass.isAssignableFrom(MapViewModel::class.java) -> {
                 MapViewModel(userPreferences,storyRepository) as T
-            }*/
+            }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }
