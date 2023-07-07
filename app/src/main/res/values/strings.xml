@@ -36,4 +36,6 @@
     <string name="satellite_type">Satellite</string>
     <string name="terrain_type">Terrain</string>
     <string name="hybrid_type">Hybrid</string>
+    <string name="text_logout">Logout</string>
+    <string name="text_logout_success">Logout Success</string>
 </resources>

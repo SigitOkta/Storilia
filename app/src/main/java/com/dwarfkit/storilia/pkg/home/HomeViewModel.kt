@@ -7,6 +7,8 @@ import com.dwarfkit.storilia.data.local.datastore.UserPreferences
 import com.dwarfkit.storilia.data.local.entity.StoryEntity
 import com.dwarfkit.storilia.data.local.entity.UserEntity
 import com.dwarfkit.storilia.data.repository.StoryRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HomeViewModel(
     private val userPreferences: UserPreferences,
@@ -19,4 +21,10 @@ class HomeViewModel(
 
     fun getAllStories(token : String): LiveData<PagingData<StoryEntity>> =
         storyRepository.getAllStories(token).cachedIn(viewModelScope)
+
+    fun logout() {
+        viewModelScope.launch(Dispatchers.IO) {
+            userPreferences.logout()
+        }
+    }
 }

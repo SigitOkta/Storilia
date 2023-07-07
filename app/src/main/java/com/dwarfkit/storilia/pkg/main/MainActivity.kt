@@ -17,7 +17,6 @@ import com.dwarfkit.storilia.R
 import com.dwarfkit.storilia.data.local.datastore.UserPreferences
 import com.dwarfkit.storilia.databinding.ActivityMainBinding
 import com.dwarfkit.storilia.pkg.add.AddStoryActivity
-import com.dwarfkit.storilia.pkg.add.CameraActivity
 import com.dwarfkit.storilia.pkg.login.LoginActivity
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "token")
@@ -36,8 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.hide()
-        isTokenAvailable()
+       /* supportActionBar?.hide()*/
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -53,15 +51,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun isTokenAvailable() {
-        mainViewModel.getUser().observe(this) { user ->
-            if (user.token.isEmpty()) {
-                val intent = Intent(this, LoginActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-                finish()
-            }
-            Log.d("Main", user.token)
-        }
-    }
 }
