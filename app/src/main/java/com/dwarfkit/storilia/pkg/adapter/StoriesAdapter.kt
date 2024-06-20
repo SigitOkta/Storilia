@@ -27,9 +27,9 @@ class StoriesAdapter : PagingDataAdapter<StoryEntity, StoriesAdapter.MyViewHolde
                     .load(stories?.photoUrl)
                     .into(ivItemStory)
                 tvUserStory.text = stories?.name
-             /*   if (stories != null) {
+                if (stories != null) {
                     tvLocation.text = getAddress(stories.lat,stories.lon,itemView.context)
-                }*/
+                }
                 tvTime.text = stories?.createdAt?.toTimeAgo()
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)

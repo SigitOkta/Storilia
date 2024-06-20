@@ -13,8 +13,8 @@
     <string name="text_or_sign_up_using">Or Sign Up Using</string>
     <string name="text_hint_email">Enter your email</string>
     <string name="valid_email_id">Email must valid</string>
-    <string name="valid_password">password minimum 6 characters</string>
-    <string name="text_hint_password">password minimum 6 characters</string>
+    <string name="valid_password">password minimum 8 characters</string>
+    <string name="text_hint_password">password minimum 8 characters</string>
     <string name="text_submit">Submit</string>
     <string name="text_input_first">Please Input First</string>
     <string name="text_hint_name">Enter Your Name</string>
